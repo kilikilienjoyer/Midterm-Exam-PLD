@@ -1,35 +1,107 @@
 using System;
+using System.Net;
 
 class MidtermExam
 {
     static void Main(string[] args)
     {
-        //Project Menu
-        string[] foodName = { "Burger", "Fries", "Spaghetti", "Soda", "Iced Tea" };
-        double[] foodPrice = { 80.00, 45.00, 99.00, 25.00, 20.00 };
+            //Project Menu
+            string[] foodName = { "Burger", "Fries", "Spaghetti", "Soda", "Iced Tea" };
+            double[] foodPrice = { 80.00, 45.00, 99.00, 25.00, 20.00 };
 
-        //quantity per order
-        int[] orderQuantity = new int[foodName.Length];
+            //quantity per order
+            int[] orderQuantity = new int[foodName.Length];
 
-        bool exitProgram = false;
+            bool exitProgram = false;
 
-        while (!exitProgram)
-        {
-            Console.WriteLine("Restaurant Name : Main Menu");
-            Console.WriteLine("1. View Products");
-            Console.WriteLine("2. Place Order");
-            Console.WriteLine("3. View Receipt");
-            Console.WriteLine("4. Search for a Product");
-            Console.WriteLine("5. Sort Products by Price");
-            Console.WriteLine("6. Exit");
-            Console.WriteLine();
-
-            int choice = readMenuChoice();
-
-            switch (choice)
+            while (!exitProgram)
             {
+                Console.WriteLine("Restaurant Name : Main Menu");
+                Console.WriteLine("1. View Food Products");
+                Console.WriteLine("2. Place Order");
+                Console.WriteLine("3. View Receipt");
+                Console.WriteLine("4. Search for a Product");
+                Console.WriteLine("5. Sort Products by Price");
+                Console.WriteLine("6. Exit");
+                Console.WriteLine();
 
+                int choice = ReadMenuChoice();
+
+                switch (choice)
+                {
+                    case 1:
+                        ViewProducts(foodName, foodPrice);
+                        break;
+                    case 2;
+                        PlaceOrder(foodName, foodPrice, orderQuantity);
+                        break;
+                    case 3;
+                        ViewReceipt(foodName, foodPrice, orderQuantity);
+                        break;
+                    case 4;
+                        SearchProduct(foodName, foodPrice);
+                    case 5;
+                        SortProducts(foodName, foodPrice);
+                        break;
+                    case 6;
+                        exitProgram = true;
+                        Console.WriteLine();
+                        Console.WriteLine("Thank you for ordering with us!");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Menu Option Selected, Please write 1-6. ");
+                        break;
+                }
+
+                if (!exitProgram)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to return to the main menu...");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
             }
         }
-    }
-}
+
+        //User Inputs
+
+        static int ReadMenuChoice();
+        {
+            Console.Write("Enter your choice: );
+            string input = Console.ReadLine();
+
+        int choice
+            bool isValid = int.TryParse(input, out choice);
+        
+            if (!isValid)
+            {
+            return -1;
+            }
+
+            return choice;
+        }
+     
+             static int ReadPositiveInt(string prompt):
+            {
+               int value;
+               bool isValid;
+
+            do
+            {
+                Console.Write(Prompt);
+                string input = Console.ReadLine();
+                isValid = int.TryParse(input, out value);
+
+                if (!isValid)
+                {
+                    Console.WriteLine("Invalid Input. Please enter a valid number.");
+                }
+                else if (value <= 0)
+                {
+                    Console.WriteLine("Number must be above 0.");
+                    isValid = false;
+                }
+            }
+
+            } 
+        }
