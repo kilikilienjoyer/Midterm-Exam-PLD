@@ -1,1 +1,11 @@
-# Midterm-Exam-PLD
+using System;
+
+class MidtermExam
+{
+    static void Main(string[] args)
+    {
+        //Project Menu
+        string[] foodName = { "Burger", "Fries", "Spaghetti", "Soda", "Iced Tea" };
+        double[] foodPrice = { 80.00, 45.00, 99.00, 25.00, 20.00 }
+
+
