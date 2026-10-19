@@ -6,6 +6,30 @@ class MidtermExam
     {
         //Project Menu
         string[] foodName = { "Burger", "Fries", "Spaghetti", "Soda", "Iced Tea" };
-        double[] foodPrice = { 80.00, 45.00, 99.00, 25.00, 20.00 }
+        double[] foodPrice = { 80.00, 45.00, 99.00, 25.00, 20.00 };
 
+        //quantity per order
+        int[] orderQuantity = new int[foodName.Length];
 
+        bool exitProgram = false;
+
+        while (!exitProgram)
+        {
+            Console.WriteLine("Restaurant Name : Main Menu");
+            Console.WriteLine("1. View Products");
+            Console.WriteLine("2. Place Order");
+            Console.WriteLine("3. View Receipt");
+            Console.WriteLine("4. Search for a Product");
+            Console.WriteLine("5. Sort Products by Price");
+            Console.WriteLine("6. Exit");
+            Console.WriteLine();
+
+            int choice = readMenuChoice();
+
+            switch (choice)
+            {
+
+            }
+        }
+    }
+}
