@@ -113,29 +113,29 @@ class MidtermExam
                     Console.WriteLine("Total receipt is: " + total);
                     break;
                 case 4:
-                    Console.WriteLine("Search for Product: ");
-                    string search = Console.ReadLine();
-                    if (search == foodName[0])
+                    Console.WriteLine("Search for Product 1-5: ");
+                    int search = Convert.ToInt32(Console.ReadLine());
+                    if (search == 1)
                     {
                         Console.WriteLine(foodName[0]);
                         Console.WriteLine("Price is: " + foodPrice[0]);
                     }
-                    else if (search == foodName[1])
+                    else if (search == 2)
                     {
                         Console.WriteLine(foodName[1]);
                         Console.WriteLine("Price is: " + foodPrice[1]);
                     }
-                    else if (search == foodName[2])
+                    else if (search == 3)
                     {
                         Console.WriteLine(foodName[2]);
                         Console.WriteLine("Price is: " + foodPrice[2]);
                     }
-                    else if (search == foodName[3])
+                    else if (search == 4)
                     {
                         Console.WriteLine(foodName[3]);
                         Console.WriteLine("Price is: " + foodPrice[3]);
                     }
-                    else if (search == foodName[4])
+                    else if (search == 5)
                     {
                         Console.WriteLine(foodName[4]);
                         Console.WriteLine("Price is: " + foodPrice[4]);
