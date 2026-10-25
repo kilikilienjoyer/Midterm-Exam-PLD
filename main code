@@ -44,7 +44,6 @@ class MidtermExam
                 case 2:
                     Console.WriteLine("Place Order");
                     bool isDone = false;
-                    //string isDone = "no";
                     int amount0 = 0;
                     int amount1 = 0;
                     int amount2 = 0;
