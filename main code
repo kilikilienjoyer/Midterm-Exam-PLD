@@ -1,3 +1,8 @@
+using System;
+using System.ComponentModel;
+using System.Numerics;
+using System.Xml.Serialization;
+
 class MidtermExam
 {
     static void Main(string[] args)
@@ -5,7 +10,11 @@ class MidtermExam
         //Project Menu
         string[] foodName = { "Burger", "Fries", "Spaghetti", "Soda", "Iced Tea" };
         double[] foodPrice = { 80.00, 45.00, 99.00, 25.00, 20.00 };
-        
+        int total = 0;
+        bool closeProgram = false;
+
+        do
+        {
             Console.WriteLine("Restaurant Name : Main Menu");
             Console.WriteLine("1. View Products");
             Console.WriteLine("2. Place Order");
@@ -17,66 +26,122 @@ class MidtermExam
 
             int chosenOption = Convert.ToInt32(Console.ReadLine());
 
-        switch (chosenOption)
-        {
-            case 1:
-                Console.WriteLine("Products: ");
-                foreach (string i in foodName)
-                {
-                    Console.Write(i + ", ");
-                }
-                Console.WriteLine("\nPrices: ");
-                foreach (double i in foodPrice)
-                { 
-                    Console.Write(i + ", ");
-                }
-                 break;
-            case 2:
-                Console.WriteLine("Place Order");
-                //do
-                {
-                    Console.WriteLine("");
-                }
-                //while (isDone != true);
-                break;
-            case 3:
-                Console.WriteLine("View Receipt");
-                break;
-            case 4:
-                Console.WriteLine("Search for Product");
-                break;
-            case 5:
-                Console.WriteLine("Sort Through Products");
-                Console.WriteLine("Products or Prices?");
-                string sortingChoice = Console.ReadLine();
-                if (sortingChoice is "Products")
-                {
-                    Array.Sort(foodName);
+            switch (chosenOption)
+            {
+                case 1:
+                    Console.Write("Products: ");
                     foreach (string i in foodName)
                     {
-                        Console.WriteLine(i);
+                        Console.Write(i + ", ");
                     }
-                }
-                else if (sortingChoice is "Prices")
-                {
-                    Array.Sort(foodPrice);
+                    Console.Write("\nPrices: ");
                     foreach (double i in foodPrice)
                     {
-                        Console.WriteLine(i);
+                        Console.Write(i + ", ");
                     }
-                }
-                else
-                {
-                    Console.WriteLine("ERROR, Please input either 'Products' or 'Prices'");
-                }
-                break;
-            case 6:
-                Console.WriteLine("Exiting Program");
-                break;
-            default:
-                Console.WriteLine("Error");
-                break;
-        }
+                    Console.WriteLine("\n");
+                    break;
+                case 2:
+                    Console.WriteLine("Place Order");
+                    bool isDone = false;
+                    //string isDone = "no";
+                    int amount0 = 0;
+                    int amount1 = 0;
+                    int amount2 = 0;
+                    int amount3 = 0;
+                    int amount4 = 0;
+                    do
+                    {
+                        Console.WriteLine("Select Products: ");
+                        foreach (string i in foodName)
+                        {
+                            Console.Write(i + ", ");
+                        }
+                        string selected = Console.ReadLine();
+                        if (selected == foodName[0])
+                        {
+                            Console.WriteLine(foodName[0] + "s selected, please specify the amount");
+                            amount0 = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(foodName[0] + " ordered: " + amount0);
+                        }
+                        else if (selected == foodName[1])
+                        {
+                            Console.WriteLine(foodName[1] + "s selected, please specify the amount");
+                            amount1 = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(foodName[1] + " ordered: " + amount1);
+                        }
+                        else if (selected == foodName[2])
+                        {
+                            Console.WriteLine(foodName[2] + "s selected, please specify the amount");
+                            amount2 = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(foodName[2] + " ordered: " + amount2);
+                        }
+                        else if (selected == foodName[3])
+                        {
+                            Console.WriteLine(foodName[3] + "s selected, please specify the amount");
+                            amount3 = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(foodName[3] + " ordered: " + amount3);
+                        }
+                        else if (selected == foodName[4])
+                        {
+                            Console.WriteLine(foodName[4] + "s selected, please specify the amount");
+                            amount4 = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine(foodName[4] + " ordered: " + amount4);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Error, no valid product selected");
+                        }
+                        Console.WriteLine("Order Complete?");
+                        total = amount0 + amount1 + amount2 + amount3 + amount4;
+                        isDone = Convert.ToBoolean(Console.ReadLine());
+                    }
+                    while (isDone != true);
+                    break;
+                case 3:
+                    Console.WriteLine("View Receipt");
+                    
+                    Console.WriteLine(total);
+                    break;
+                case 4:
+                    Console.WriteLine("Search for Product");
 
+                    break;
+                case 5:
+                    Console.WriteLine("Sort Through Products");
+                    Console.WriteLine("Products or Prices?");
+                    string sortingChoice = Console.ReadLine();
+                    if (sortingChoice is "Products")
+                    {
+                        Array.Sort(foodName);
+                        foreach (string i in foodName)
+                        {
+                            Console.WriteLine(i);
+                        }
+                    }
+                    else if (sortingChoice is "Prices")
+                    {
+                        Array.Sort(foodPrice);
+                        foreach (double i in foodPrice)
+                        {
+                            Console.WriteLine(i);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("ERROR, Please input either 'Products' or 'Prices'");
+                    }
+                    break;
+                case 6:
+                    Console.WriteLine("Exiting Program");
+                    Console.WriteLine("Thank you for shopping with us!");
+                    closeProgram = true;
+                    break;
+                default:
+                    Console.WriteLine("Error");
+                    break;
+            }
+        }
+        while (closeProgram != true);
     }
 }
