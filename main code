@@ -51,9 +51,9 @@ class MidtermExam
                     int amount4 = 0;
                     double order0 = amount0 * foodPrice[0];
                     double order1 = amount1 * foodPrice[1];
-                    double order2 = amount1 * foodPrice[2];
-                    double order3 = amount1 * foodPrice[3];
-                    double order4 = amount1 * foodPrice[4];
+                    double order2 = amount2 * foodPrice[2];
+                    double order3 = amount3 * foodPrice[3];
+                    double order4 = amount4 * foodPrice[4];
                     do
                     {
                         Console.WriteLine("Select Products: ");
